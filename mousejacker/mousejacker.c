@@ -8,7 +8,8 @@
 #include <furi_hal_spi.h>
 #include <furi_hal_interrupt.h>
 #include <furi_hal_resources.h>
-#include <nrf24.h>
+#include "shared/lib/drivers/nrf24.h"
+#include "shared/shim/string.h"
 #include "mousejacker_ducky.h"
 
 #define TAG "mousejacker"
@@ -217,7 +218,7 @@ static bool load_addrs_file(Stream* file_stream) {
         bytes_read = stream_read(file_stream, file_buf, file_size);
         if(bytes_read == file_size) {
             FURI_LOG_D(TAG, "loading addrs file");
-            char* line = strtok((char*)file_buf, "\n");
+            char* line = mystrtok((char*)file_buf, "\n");
 
             while(line != NULL) {
                 line_ptr = strstr((char*)line, ",");
@@ -232,7 +233,7 @@ static bool load_addrs_file(Stream* file_stream) {
                 memset(loaded_addrs[counter], rate, 1);
                 memcpy(&loaded_addrs[counter++][1], addr, addrlen);
                 addrs_count++;
-                line = strtok(NULL, "\n");
+                line = mystrtok(NULL, "\n");
                 loaded = true;
             }
         } else {

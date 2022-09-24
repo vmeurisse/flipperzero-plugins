@@ -5,7 +5,8 @@
 #include <notification/notification_messages.h>
 #include <stdlib.h>
 
-#include <nrf24.h>
+#include "shared/lib/drivers/nrf24.h"
+#include "shared/shim/string.h"
 #include <toolbox/stream/file_stream.h>
 
 #define LOGITECH_MAX_CHANNEL 85
@@ -159,11 +160,11 @@ static bool save_addr_to_file(
     if(target_rate == 8) rate = 2;
     snprintf(ending, sizeof(ending), ",%d\n", rate);
     hexlify(data, size, addrline);
-    strcat(addrline, ending);
+    mystrcat(addrline, ending);
     linesize = strlen(addrline);
     strcpy(filepath, NRFSNIFF_APP_PATH_FOLDER);
-    strcat(filepath, "/");
-    strcat(filepath, NRFSNIFF_APP_FILENAME);
+    mystrcat(filepath, "/");
+    mystrcat(filepath, NRFSNIFF_APP_FILENAME);
     stream_seek(stream, 0, StreamOffsetFromStart);
 
     // check if address already exists in file
@@ -175,14 +176,14 @@ static bool save_addr_to_file(
             file_contents = malloc(file_size + 1);
             memset(file_contents, 0, file_size + 1);
             if(stream_read(stream, file_contents, file_size) > 0) {
-                char* line = strtok((char*)file_contents, "\n");
+                char* line = mystrtok((char*)file_contents, "\n");
 
                 while(line != NULL) {
                     if(!memcmp(line, addrline, 12)) {
                         found = true;
                         break;
                     }
-                    line = strtok(NULL, "\n");
+                    line = mystrtok(NULL, "\n");
                 }
             }
             free(file_contents);

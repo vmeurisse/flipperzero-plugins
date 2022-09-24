@@ -5,10 +5,11 @@
 #include <furi_hal_spi.h>
 #include <stdio.h>
 #include <string.h>
-#include <nrf24.h>
+#include "shared/lib/drivers/nrf24.h"
 #include <furi.h>
 #include <furi_hal.h>
 #include <toolbox/stream/file_stream.h>
+#include "shared/shim/string.h"
 
 #ifdef __cplusplus
 extern "C" {
