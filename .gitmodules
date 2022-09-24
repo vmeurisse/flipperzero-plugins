@@ -10,3 +10,6 @@
 [submodule "caesar-cipher"]
 	path = caesar-cipher
 	url = https://github.com/panki27/caesar-cipher
+[submodule "FlipperZeroUSBKeyboard"]
+	path = usb-keyboard
+	url = https://github.com/huuck/FlipperZeroUSBKeyboard.git
