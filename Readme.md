@@ -15,3 +15,7 @@ Go to the [releases](https://github.com/vmeurisse/flipperzero-plugins/releases),
 - Clone the [official flipper zero firmware](https://github.com/flipperdevices/flipperzero-firmware)
 - Add the content of this repo to the `applications_user` folder
 - Follow [official instructions](https://github.com/flipperdevices/flipperzero-firmware/blob/dev/documentation/AppsOnSDCard.md)
+
+### Calculator
+
+To build the calculator app, you need to comment the line `"-Werror",` in file `site_scons/cc.scons`.
