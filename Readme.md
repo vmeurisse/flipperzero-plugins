@@ -6,7 +6,7 @@ Note that I'am not the author of these apps. I just ported them to the official 
 
 ## Installation instructions
 
-**You need to have an official firmware ≥ 0.67.0. Use dev channel until it is released.**
+**You need to have an official firmware ≥ 0.67.2.**
 
 Go to the [releases](https://github.com/vmeurisse/flipperzero-plugins/releases), download apps.zip and extract it in your SD card.
 
