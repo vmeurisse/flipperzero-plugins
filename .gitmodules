@@ -1,0 +1,9 @@
+[submodule "bpm-tapper"]
+	path = bpm-tapper
+	url = https://github.com/panki27/bpm-tapper.git
+[submodule "metronome"]
+	path = metronome
+	url = https://github.com/panki27/Metronome.git
+[submodule "dtmf_dolphin"]
+	path = dtmf_dolphin
+	url = https://github.com/kowalski7cc/dtmf_dolphin.git
